@@ -4,10 +4,10 @@ metadata:
   name: hello-world-ingress
 spec:
   rules:
-  - host: homelab.mkurleto.io
+  - host: hello-world.mkurleto.io
     http:
       paths:
-      - path: /hello
+      - path: /
         pathType: Prefix
         backend:
           service:
