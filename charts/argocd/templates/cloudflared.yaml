@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bootstrap
-  namespace: argocd
+  name: cloudflared
+  namespace: cloudflared
 spec:
   project: default
   source:
     repoURL: https://github.com/zbsss/k8s-homelab.git
     targetRevision: main
-    path: charts/argocd
+    path: cloudflared
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: cloudflared
   syncPolicy:
     automated:
       prune: true
