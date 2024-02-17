@@ -1,0 +1,11 @@
+argo-cd:
+  global:
+    domain: argocd.mkurleto.io
+  configs:
+    params:
+      server.insecure: true
+  server:
+    ingress:
+      enabled: true
+      hosts:
+        - argocd.mkurleto.io
