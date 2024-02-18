@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/zbsss/k8s-homelab.git
     targetRevision: main
-    path: cloudflared
+    path: charts/cloudflared
   destination:
     server: https://kubernetes.default.svc
     namespace: cloudflared
