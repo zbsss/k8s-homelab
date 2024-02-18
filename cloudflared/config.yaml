@@ -29,9 +29,12 @@ data:
     # from the internet to cloudflared, run `cloudflared tunnel route dns <tunnel> <hostname>`.
     # E.g. `cloudflared tunnel route dns homelab-tunnel tunnel.example.com`.
     ingress:
-    - hostname: "*.mkurleto.io"
+    - hostname: "hello-world.mkurleto.io"
       service: http://traefik.kube-system.svc.cluster.local:80
-      # originRequest:
-      #   originServerName: mkurleto.io
+    - hostname: "argocd.mkurleto.io"
+      service: http://traefik.kube-system.svc.cluster.local:80
+    - hostname: "grafana.mkurleto.io"
+      service: http://traefik.kube-system.svc.cluster.local:80
+
     # This rule matches any traffic which didn't match a previous rule, and responds with HTTP 404.
     - service: http_status:404
