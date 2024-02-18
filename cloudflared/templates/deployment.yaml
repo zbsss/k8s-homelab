@@ -3,11 +3,19 @@ kind: Deployment
 metadata:
   name: cloudflared
   namespace: cloudflared
+  annotations:
+    # This annotation restarts the pods when the config changes.
+    checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
 spec:
   selector:
     matchLabels:
       app: cloudflared
   replicas: 2 # You could also consider elastic scaling for this deployment
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:
