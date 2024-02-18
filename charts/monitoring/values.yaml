@@ -8,3 +8,17 @@ kube-prometheus-stack:
       existingSecret: grafana-admin-credentials
       userKey: admin-user
       passwordKey: admin-password
+
+  prometheus:
+    enabled: true
+    prometheusSpec:
+      replicas: 1
+      replicaExternalLabelName: "replica"
+      ruleSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+      probeSelectorNilUsesHelmValues: false
+      retention: 6h
+      enableAdminAPI: true
+      walCompression: true
+
