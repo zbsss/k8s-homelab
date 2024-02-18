@@ -1,9 +1,10 @@
 apiVersion: grafana.integreatly.org/v1beta1
-kind: GrafanaDashboard
+kind: ConfigMap
 metadata:
   name: argocd-grafana-dashboard
   namespace: monitoring
-spec:
-  resyncPeriod: 30s
-  json:
-    {{ .Files.Get "files/argocd-dashboard.json" | indent 4 }}
+labels:
+    grafana_dashboard: "1"
+data:
+  argocd-dashboard.json: |-
+{{ .Files.Get "files/argocd-dashboard.json" | indent 4 }}
