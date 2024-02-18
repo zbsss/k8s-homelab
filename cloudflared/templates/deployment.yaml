@@ -3,9 +3,6 @@ kind: Deployment
 metadata:
   name: cloudflared
   namespace: cloudflared
-  annotations:
-    # This annotation restarts the pods when the config changes.
-    checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
 spec:
   selector:
     matchLabels:
@@ -20,6 +17,9 @@ spec:
     metadata:
       labels:
         app: cloudflared
+      annotations:
+        # This annotation restarts the pods when the config changes.
+        checksum/config: {{ include (print $.Template.BasePath "/config.yaml") . | sha256sum }}
     spec:
       containers:
       - name: cloudflared
