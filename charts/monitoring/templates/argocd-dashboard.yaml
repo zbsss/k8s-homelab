@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: argocd-grafana-dashboard
   namespace: monitoring
-labels:
-    grafana_dashboard: "1"
+  labels:
+      grafana_dashboard: "1"
 data:
   argocd-dashboard.json: |-
 {{ .Files.Get "files/argocd-dashboard.json" | indent 4 }}
