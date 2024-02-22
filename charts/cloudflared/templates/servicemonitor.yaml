@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: cloudflared-monitor
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: cloudflared
+spec:
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics
+      scrapeTimeout: 10s
+  selector:
+    matchLabels:
+      app: cloudflared
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
