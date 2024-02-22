@@ -3,12 +3,14 @@ kind: Service
 metadata:
   name: cloudflared-service
   namespace: {{ .Release.Namespace }}
+  labels:
+    app: cloudflared
 spec:
   type: ClusterIP
   ports:
-    - port: 2000
+    - name: metrics
+      port: 2000
       targetPort: 2000
       protocol: TCP
-      name: metrics
   selector:
     app: cloudflared
