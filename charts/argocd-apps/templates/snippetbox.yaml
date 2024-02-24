@@ -10,6 +10,8 @@ spec:
       valueFiles:
       - environments/prod.values.yaml
       values: |
+        image:
+          tag: latest
         ingress:
           enabled: true
           hosts:
@@ -21,6 +23,11 @@ spec:
     repoURL: https://github.com/zbsss/snippetbox.git
     targetRevision: main
     path: deploy/helm/snippetbox
+  ignoreDifferences:
+  - group: apps
+    kind: StatefulSet
+    jqPathExpressions:
+      - '.spec.volumeClaimTemplates[]?'
   destination:
     server: https://kubernetes.default.svc
     namespace: snippetbox
