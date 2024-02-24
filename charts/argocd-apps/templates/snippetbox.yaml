@@ -7,7 +7,6 @@ spec:
   project: default
   source:
     helm:
-      chart: snippetbox
       valueFiles:
       - environments/prod.values.yaml
       values: |
@@ -20,7 +19,6 @@ spec:
               paths:
                 - path: /
                   pathType: Prefix
-      chart: snippetbox
     repoURL: https://github.com/zbsss/snippetbox.git
     targetRevision: main
     path: deploy/helm/snippetbox
