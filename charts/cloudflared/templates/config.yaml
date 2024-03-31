@@ -37,6 +37,9 @@ data:
       service: http://traefik.kube-system.svc.cluster.local:80
     - hostname: "grafana.mkurleto.io"
       service: http://traefik.kube-system.svc.cluster.local:80
+    - hostname: "mkurleto.io"
+      path: /blog.*
+      service: http://traefik.kube-system.svc.cluster.local:80
 
     # This rule matches any traffic which didn't match a previous rule, and responds with HTTP 404.
     - service: http_status:404
