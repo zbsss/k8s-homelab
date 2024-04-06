@@ -31,6 +31,8 @@ data:
     ingress:
     - hostname: "snippetbox.mkurleto.io"
       service: http://traefik.kube-system.svc.cluster.local:80
+    - hostname: "skincareroutine.mkurleto.io"
+      service: http://traefik.kube-system.svc.cluster.local:80
     - hostname: "hello-world.mkurleto.io"
       service: http://traefik.kube-system.svc.cluster.local:80
     - hostname: "argocd.mkurleto.io"
