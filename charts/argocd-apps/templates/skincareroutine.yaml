@@ -6,12 +6,15 @@ metadata:
 spec:
   project: default
   source:
+    helm:
+      valueFiles:
+      - values.staging.yaml
     repoURL: https://github.com/zbsss/skincareroutine.io.git
     targetRevision: main
     path: deploy
   destination:
     server: https://kubernetes.default.svc
-    namespace: skincareroutine
+    namespace: skincareroutine-staging
   syncPolicy:
     automated:
       prune: true
