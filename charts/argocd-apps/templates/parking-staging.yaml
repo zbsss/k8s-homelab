@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: parking-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    helm:
+      values:
+        image:
+          tag: 9be8324d8a7c7a499d35ea4a69de61bbc33b2ee2
+
+        ingress:
+          host: parking-staging.mkurleto.io
+    repoURL: https://github.com/zbsss/parking-zones.git
+    targetRevision: 9be8324d8a7c7a499d35ea4a69de61bbc33b2ee2
+    path: deploy
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: parking-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

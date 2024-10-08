@@ -31,6 +31,8 @@ data:
     ingress:
     - hostname: "warsawparkingzone.mkurleto.io"
       service: http://traefik.kube-system.svc.cluster.local:80
+    - hostname: "parking-staging.mkurleto.io"
+      service: http://traefik.kube-system.svc.cluster.local:80
     - hostname: "snippetbox.mkurleto.io"
       service: http://traefik.kube-system.svc.cluster.local:80
     - hostname: "skincareroutine.mkurleto.io"
