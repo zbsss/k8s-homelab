@@ -9,12 +9,12 @@ spec:
     helm:
       values: |
         image:
-          tag: 76aa1ffb2f4225cfaff7ecdbf49add4f71969123
+          tag: 780a7a2e4e881f492f0b2bdd606d6c2804d63965
 
         ingress:
           host: parking-staging.mkurleto.io
     repoURL: https://github.com/zbsss/parking-zones.git
-    targetRevision: 76aa1ffb2f4225cfaff7ecdbf49add4f71969123
+    targetRevision: 780a7a2e4e881f492f0b2bdd606d6c2804d63965
     path: deploy
   destination:
     server: https://kubernetes.default.svc
