@@ -7,10 +7,14 @@ spec:
   project: default
   source:
     helm:
-      valueFiles:
-      - values.staging.yaml
+      values: |
+        image:
+          tag: 28a307056998b935feac859a5a66f3aa0ea2a7db
+
+        ingress:
+          host: warsawparkingzone.mkurleto.io
     repoURL: https://github.com/zbsss/parking-zones.git
-    targetRevision: main
+    targetRevision: 28a307056998b935feac859a5a66f3aa0ea2a7db
     path: deploy
   destination:
     server: https://kubernetes.default.svc
