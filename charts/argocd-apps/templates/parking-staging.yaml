@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     helm:
-      values:
+      values: |
         image:
           tag: 9be8324d8a7c7a499d35ea4a69de61bbc33b2ee2
 
