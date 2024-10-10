@@ -9,12 +9,12 @@ spec:
     helm:
       values: |
         image:
-          tag: 28a307056998b935feac859a5a66f3aa0ea2a7db
+          tag: 0987b9627bb73071f69b2373bcc2caca20d115b8
 
         ingress:
           host: warsawparkingzone.mkurleto.io
     repoURL: https://github.com/zbsss/parking-zones.git
-    targetRevision: 28a307056998b935feac859a5a66f3aa0ea2a7db
+    targetRevision: 0987b9627bb73071f69b2373bcc2caca20d115b8
     path: deploy
   destination:
     server: https://kubernetes.default.svc
@@ -24,5 +24,5 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
-    - ServerSideApply=true
+      - CreateNamespace=true
+      - ServerSideApply=true
